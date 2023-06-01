@@ -18,7 +18,7 @@ namespace e_Agenda.WinApp.TaskModule
 
             if (dialogResult == DialogResult.OK)
             {
-
+                //
             }
         }
 
