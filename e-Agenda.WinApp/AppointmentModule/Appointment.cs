@@ -1,6 +1,6 @@
-﻿using e_Agenda.WinApp.ContactModule;
+﻿using eAgenda.WinApp.ContactModule;
 
-namespace e_Agenda.WinApp.AppointmentModule
+namespace eAgenda.WinApp.AppointmentModule
 {
     public class Appointment : BaseEntity<Appointment>
     {

@@ -1,1 +1,1 @@
-﻿global using e_Agenda.WinApp.Shared;
+﻿global using eAgenda.WinApp.Shared;

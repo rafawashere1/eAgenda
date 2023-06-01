@@ -1,6 +1,6 @@
-﻿using e_Agenda.WinApp.ContactModule;
+﻿using eAgenda.WinApp.ContactModule;
 
-namespace e_Agenda.WinApp.AppointmentModule
+namespace eAgenda.WinApp.AppointmentModule
 {
     public partial class AppointmentForm : Form
     {
@@ -36,7 +36,12 @@ namespace e_Agenda.WinApp.AppointmentModule
             else
                 adress = txtInPerson.Text;
 
-            return new Appointment(subject, date, startTime, endTime, contact, adress, type);
+            Appointment appointment = new(subject, date, startTime, endTime, contact, adress, type);
+
+            if (id > 0)
+                appointment.Id = id;
+
+            return appointment;
         }
 
         public void ConfigureForm(Appointment selectedAppointment)

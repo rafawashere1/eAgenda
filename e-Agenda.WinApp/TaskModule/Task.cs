@@ -1,31 +1,33 @@
-﻿namespace e_Agenda.WinApp.TasksModule
+﻿namespace eAgenda.WinApp.TaskModule
 {
     public class Task : BaseEntity<Task>
     {
-        public int id;
-        public string title;
-        public string priority;
+        public string Title { get; set; }
+        public TaskPriorityEnum Priority { get; set; }
+        public DateTime CreationDate { get; set; }
 
-        public Task(int id, string title, string priority)
+        public Task(string title, TaskPriorityEnum priority, DateTime creationDate)
         {
-            this.id = id;
-            this.title = title;
-            this.priority = priority;
+            Title = title;
+            Priority = priority;
+            CreationDate = creationDate;
         }
 
         public override string ToString()
         {
-            return $"Id: {id}, título: {title}, prioridade: {priority}";
+            return $"Id: {Id}, título: {Title}, prioridade: {Priority}";
         }
 
         public override void UpdateInfos(Task updatedRegister)
         {
-            throw new NotImplementedException();
+            Id = updatedRegister.Id;
+            Title = updatedRegister.Title;
+            Priority = updatedRegister.Priority;
         }
 
         public override List<string> Validate()
         {
-            throw new NotImplementedException();
+            return new List<string>();
         }
     }
 }

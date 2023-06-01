@@ -1,4 +1,4 @@
-﻿namespace e_Agenda.WinApp.Shared
+﻿namespace eAgenda.WinApp.Shared
 {
     public class BaseRepository<T> where T : BaseEntity<T>
     {

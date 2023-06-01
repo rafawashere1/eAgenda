@@ -1,4 +1,4 @@
-﻿namespace e_Agenda.WinApp
+﻿namespace eAgenda.WinApp
 {
     partial class MainForm
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
             contactsMenuItem = new ToolStripMenuItem();
@@ -40,10 +41,10 @@
             btnAdd = new ToolStripButton();
             btnEdit = new ToolStripButton();
             btnDelete = new ToolStripButton();
-            lblTypeRegistration = new ToolStripLabel();
             toolStripSeparator1 = new ToolStripSeparator();
             btnFilter = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
+            lblTypeRegistration = new ToolStripLabel();
             statusStrip1 = new StatusStrip();
             lblFooter = new ToolStripStatusLabel();
             panelRegisters = new Panel();
@@ -120,7 +121,7 @@
             // btnAdd
             // 
             btnAdd.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnAdd.Image = Properties.Resources.add_circle_FILL0_wght400_GRAD0_opsz24;
+            btnAdd.Image = (Image)resources.GetObject("btnAdd.Image");
             btnAdd.ImageScaling = ToolStripItemImageScaling.None;
             btnAdd.ImageTransparentColor = Color.Magenta;
             btnAdd.Name = "btnAdd";
@@ -132,7 +133,7 @@
             // btnEdit
             // 
             btnEdit.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnEdit.Image = Properties.Resources.edit_FILL0_wght400_GRAD0_opsz24;
+            btnEdit.Image = (Image)resources.GetObject("btnEdit.Image");
             btnEdit.ImageScaling = ToolStripItemImageScaling.None;
             btnEdit.ImageTransparentColor = Color.Magenta;
             btnEdit.Name = "btnEdit";
@@ -144,7 +145,7 @@
             // btnDelete
             // 
             btnDelete.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnDelete.Image = Properties.Resources.delete_FILL0_wght400_GRAD0_opsz24;
+            btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
             btnDelete.ImageScaling = ToolStripItemImageScaling.None;
             btnDelete.ImageTransparentColor = Color.Magenta;
             btnDelete.Name = "btnDelete";
@@ -152,12 +153,6 @@
             btnDelete.Size = new Size(42, 42);
             btnDelete.Text = "Excluir";
             btnDelete.Click += btnDelete_Click;
-            // 
-            // lblTypeRegistration
-            // 
-            lblTypeRegistration.Name = "lblTypeRegistration";
-            lblTypeRegistration.Size = new Size(107, 42);
-            lblTypeRegistration.Text = "lblTypeRegistration";
             // 
             // toolStripSeparator1
             // 
@@ -167,7 +162,7 @@
             // btnFilter
             // 
             btnFilter.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnFilter.Image = Properties.Resources.filter_alt_FILL0_wght400_GRAD0_opsz24;
+            btnFilter.Image = (Image)resources.GetObject("btnFilter.Image");
             btnFilter.ImageScaling = ToolStripItemImageScaling.None;
             btnFilter.ImageTransparentColor = Color.Magenta;
             btnFilter.Name = "btnFilter";
@@ -180,6 +175,12 @@
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
             toolStripSeparator2.Size = new Size(6, 45);
+            // 
+            // lblTypeRegistration
+            // 
+            lblTypeRegistration.Name = "lblTypeRegistration";
+            lblTypeRegistration.Size = new Size(107, 42);
+            lblTypeRegistration.Text = "lblTypeRegistration";
             // 
             // statusStrip1
             // 
@@ -219,7 +220,7 @@
             Name = "MainForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "e-Agenda 1.0";
+            Text = "eAgenda 1.0";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             toolStrip1.ResumeLayout(false);

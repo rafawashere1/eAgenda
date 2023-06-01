@@ -1,20 +1,21 @@
-﻿namespace e_Agenda.WinApp.TasksModule
+﻿namespace eAgenda.WinApp.TaskModule
 {
     public partial class ListingTaskControl : UserControl
     {
-        List<Task> tasks = new();
-
         public ListingTaskControl()
         {
             InitializeComponent();
+        }
+        public void UpdateRegisters(List<Task> tasks)
+        {
+            listTask.Items.Clear();
 
-            tasks.Add(new Task(3, "Rafael", "Academia do Programador"));
-            tasks.Add(new Task(4, "Agatha", "Academia do Programador"));
+            listTask.Items.AddRange(tasks.ToArray());
+        }
 
-            foreach (Task item in tasks)
-            {
-                listTask.Items.Add(item);
-            }
+        public Task GetSelectedTask()
+        {
+            return listTask.SelectedItem as Task;
         }
     }
 }

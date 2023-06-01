@@ -1,4 +1,4 @@
-﻿namespace e_Agenda.WinApp.TasksModule
+﻿namespace eAgenda.WinApp.TaskModule
 {
     partial class ListingTaskControl
     {

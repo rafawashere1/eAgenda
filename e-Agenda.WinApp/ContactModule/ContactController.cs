@@ -1,4 +1,6 @@
-﻿namespace e_Agenda.WinApp.ContactModule
+﻿using eAgenda.WinApp.AppointmentModule;
+
+namespace eAgenda.WinApp.ContactModule
 {
     public class ContactController : BaseController
     {
@@ -79,9 +81,7 @@
                 "Exclusão de Contatos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.OK)
-            {
                 _contactRepository.Delete(selectedContact);
-            }
 
             LoadContacts();
         }
@@ -89,7 +89,10 @@
         private void LoadContacts()
         {
             List<Contact> contacts = _contactRepository.SelectAll();
+
             _listingContact.UpdateRegisters(contacts);
+
+            MainForm.Instance.UpdateFooter($"Visualizando {contacts.Count} contato(s).");
         }
 
         public override UserControl GetListing()

@@ -1,4 +1,4 @@
-﻿namespace e_Agenda.WinApp.ContactModule
+﻿namespace eAgenda.WinApp.ContactModule
 {
     public partial class ListingContactControl : UserControl
     {
@@ -12,10 +12,7 @@
         {
             listContact.Items.Clear();
 
-            foreach (Contact item in contacts)
-            {
-                listContact.Items.Add(item);
-            }
+            listContact.Items.AddRange(contacts.ToArray());
         }
 
         public Contact GetSelectedContact()

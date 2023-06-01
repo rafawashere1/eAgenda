@@ -1,4 +1,4 @@
-﻿namespace e_Agenda.WinApp.AppointmentModule
+﻿namespace eAgenda.WinApp.AppointmentModule
 {
     public partial class FilterAppointmentForm : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace e_Agenda.WinApp.ContactModule
+﻿namespace eAgenda.WinApp.ContactModule
 {
     public class ContactRepository : BaseRepository<Contact>
     {

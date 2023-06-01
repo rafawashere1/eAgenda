@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "e-Agenda.WinApp", "e-Agenda.WinApp\e-Agenda.WinApp.csproj", "{547E1685-2D82-4395-82E8-7688D72446B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eAgenda.WinApp", "e-Agenda.WinApp\eAgenda.WinApp.csproj", "{547E1685-2D82-4395-82E8-7688D72446B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

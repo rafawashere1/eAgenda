@@ -1,12 +1,12 @@
-﻿using e_Agenda.WinApp.ContactModule;
+﻿using eAgenda.WinApp.ContactModule;
 
-namespace e_Agenda.WinApp.AppointmentModule
+namespace eAgenda.WinApp.AppointmentModule
 {
     public class AppointmentController : BaseController
     {
         private readonly AppointmentRepository _appointmentRepository;
         private readonly ContactRepository _contactRepository;
-        private ListingAppointmentControl listingAppointment;
+        private ListingAppointmentControl _listingAppointment;
 
         public AppointmentController(AppointmentRepository appointmentRepository, ContactRepository contactRepository)
         {
@@ -40,7 +40,7 @@ namespace e_Agenda.WinApp.AppointmentModule
 
         public override void Edit()
         {
-            Appointment selectedAppointment = listingAppointment.GetSelectedAppointment();
+            Appointment selectedAppointment = _listingAppointment.GetSelectedAppointment();
 
             if (selectedAppointment == null)
             {
@@ -72,7 +72,7 @@ namespace e_Agenda.WinApp.AppointmentModule
 
         public override void Delete()
         {
-            Appointment selectedAppointment = listingAppointment.GetSelectedAppointment();
+            Appointment selectedAppointment = _listingAppointment.GetSelectedAppointment();
 
             if (selectedAppointment == null)
             {
@@ -88,9 +88,7 @@ namespace e_Agenda.WinApp.AppointmentModule
                 "Exclusão de Compromissos", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.OK)
-            {
                 _appointmentRepository.Delete(selectedAppointment);
-            }
 
             LoadAppointments();
         }
@@ -125,17 +123,17 @@ namespace e_Agenda.WinApp.AppointmentModule
 
                 LoadAppointments(appointments);
 
-                MainForm.Instance.UpdateFooter($"Visualizando {appointments.Count} compromissos.");
+                MainForm.Instance.UpdateFooter($"Visualizando {appointments.Count} compromisso(s).");
             }
         }
 
         public override UserControl GetListing()
         {
-            listingAppointment ??= new ListingAppointmentControl();
+            _listingAppointment ??= new ListingAppointmentControl();
 
             LoadAppointments();
 
-            return listingAppointment;
+            return _listingAppointment;
         }
 
         public override string GetTypeRegistration() 
@@ -147,12 +145,14 @@ namespace e_Agenda.WinApp.AppointmentModule
         {
             List<Appointment> appointments = _appointmentRepository.SelectAll();
 
-            listingAppointment.UpdateRegisters(appointments);
+            _listingAppointment.UpdateRegisters(appointments);
+
+            MainForm.Instance.UpdateFooter($"Visualizando {appointments.Count} compromisso(s).");
         }
 
         private void LoadAppointments(List<Appointment> appointments)
         {
-            listingAppointment.UpdateRegisters(appointments);
+            _listingAppointment.UpdateRegisters(appointments);
         }
     }
 }

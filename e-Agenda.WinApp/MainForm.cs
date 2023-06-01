@@ -1,14 +1,16 @@
-using e_Agenda.WinApp.ContactModule;
-using e_Agenda.WinApp.AppointmentModule;
-using e_Agenda.WinApp.TaskModule;
+using eAgenda.WinApp.ContactModule;
+using eAgenda.WinApp.AppointmentModule;
+using eAgenda.WinApp.TaskModule;
+using Task = eAgenda.WinApp.TaskModule.Task;
 
-namespace e_Agenda.WinApp
+namespace eAgenda.WinApp
 {
     public partial class MainForm : Form
     {
         private BaseController _controller;
         private readonly ContactRepository _contactRepository = new(new List<Contact>());
         private readonly AppointmentRepository _appointmentRepository = new(new List<Appointment>());
+        private readonly TaskRepository _taskRepository = new(new List<Task>());
 
         private static MainForm _mainForm;
         public MainForm()
@@ -44,7 +46,7 @@ namespace e_Agenda.WinApp
 
         private void tasksMenuItem_Click(object sender, EventArgs e)
         {
-            _controller = new TaskController();
+            _controller = new TaskController(_taskRepository);
 
             ConfigureMainForm(_controller);
         }

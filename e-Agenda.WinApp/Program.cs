@@ -1,4 +1,4 @@
-namespace e_Agenda.WinApp
+namespace eAgenda.WinApp
 {
     internal static class Program
     {

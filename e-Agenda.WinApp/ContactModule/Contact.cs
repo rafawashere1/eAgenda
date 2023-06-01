@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace e_Agenda.WinApp.ContactModule
+namespace eAgenda.WinApp.ContactModule
 {
     public class Contact : BaseEntity<Contact>
     {

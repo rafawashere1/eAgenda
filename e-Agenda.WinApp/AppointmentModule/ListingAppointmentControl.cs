@@ -1,4 +1,4 @@
-﻿namespace e_Agenda.WinApp.AppointmentModule
+﻿namespace eAgenda.WinApp.AppointmentModule
 {
     public partial class ListingAppointmentControl : UserControl
     {
@@ -11,10 +11,7 @@
         {
             listAppointments.Items.Clear();
 
-            foreach (Appointment item in appointments)
-            {
-                listAppointments.Items.Add(item);
-            }
+            listAppointments.Items.AddRange(appointments.ToArray());
         }
 
         public Appointment GetSelectedAppointment()
