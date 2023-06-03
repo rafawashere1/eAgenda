@@ -2,6 +2,11 @@
 {
     public enum PriorityTaskEnum
     {
-        Low, Medium, High
+        [Description("Baixa")]
+        Low,
+        [Description("Média")]
+        Medium,
+        [Description("Alta")]
+        High
     }
 }

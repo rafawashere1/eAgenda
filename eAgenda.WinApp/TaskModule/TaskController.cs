@@ -3,7 +3,7 @@
     public class TaskController : BaseController
     {
         private readonly TaskRepository _taskRepository;
-        private ListingTaskControl _listingTask;
+        private TableTaskControl _tableTask;
 
         public TaskController(TaskRepository taskRepository)
         {
@@ -34,7 +34,7 @@
 
         public override void Edit()
         {
-            Task selectedTask = _listingTask.GetSelectedTask();
+            Task selectedTask = _tableTask.GetSelectedTask();
 
             if (selectedTask == null)
             {
@@ -64,7 +64,7 @@
 
         public override void Delete()
         {
-            Task selectedTask = _listingTask.GetSelectedTask();
+            Task selectedTask = _tableTask.GetSelectedTask();
 
             if (selectedTask == null)
             {
@@ -113,7 +113,7 @@
 
         public override void Add()
         {
-            Task selectedTask = _listingTask.GetSelectedTask();
+            Task selectedTask = _tableTask.GetSelectedTask();
 
             if (selectedTask == null)
             {
@@ -146,7 +146,7 @@
 
         public override void ConcludeItems()
         {
-            Task selectedTask = _listingTask.GetSelectedTask();
+            Task selectedTask = _tableTask.GetSelectedTask();
 
             if (selectedTask == null)
             {
@@ -186,11 +186,11 @@
 
         public override UserControl GetListing()
         {
-            _listingTask ??= new ListingTaskControl();
+            _tableTask ??= new TableTaskControl();
 
             LoadTasks();
 
-            return _listingTask;
+            return _tableTask;
         }
 
         public override string GetTypeRegistration()
@@ -202,14 +202,14 @@
         {
             List<Task> tasks = _taskRepository.SelectAllOrdenedByPriority();
 
-            _listingTask.UpdateRegisters(tasks);
+            _tableTask.UpdateRegisters(tasks);
 
             MainForm.Instance.UpdateFooter($"Visualizando {tasks.Count} tarefa(s)");
         }
 
         private void LoadTasks(List<Task> tasks)
         {
-            _listingTask.UpdateRegisters(tasks);
+            _tableTask.UpdateRegisters(tasks);
 
             MainForm.Instance.UpdateFooter($"Visualizando {tasks.Count} tarefa(s)");
         }
