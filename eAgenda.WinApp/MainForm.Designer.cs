@@ -37,22 +37,22 @@
             despesasToolStripMenuItem = new ToolStripMenuItem();
             spendingsMenuItem = new ToolStripMenuItem();
             categoriesMenuItem = new ToolStripMenuItem();
-            toolStrip1 = new ToolStrip();
+            toolbar = new ToolStrip();
             btnInsert = new ToolStripButton();
             btnEdit = new ToolStripButton();
             btnDelete = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             btnFilter = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
-            btnAdd = new ToolStripButton();
+            btnAddItems = new ToolStripButton();
+            btnConcludeItems = new ToolStripButton();
             toolStripSeparator3 = new ToolStripSeparator();
             lblTypeRegistration = new ToolStripLabel();
             statusStrip1 = new StatusStrip();
             lblFooter = new ToolStripStatusLabel();
             panelRegisters = new Panel();
-            btnConcludeItems = new ToolStripButton();
             menuStrip1.SuspendLayout();
-            toolStrip1.SuspendLayout();
+            toolbar.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,21 +75,21 @@
             // contactsMenuItem
             // 
             contactsMenuItem.Name = "contactsMenuItem";
-            contactsMenuItem.Size = new Size(154, 22);
+            contactsMenuItem.Size = new Size(180, 22);
             contactsMenuItem.Text = "Contatos";
             contactsMenuItem.Click += contactsMenuItem_Click;
             // 
             // appointmentMenuItem
             // 
             appointmentMenuItem.Name = "appointmentMenuItem";
-            appointmentMenuItem.Size = new Size(154, 22);
+            appointmentMenuItem.Size = new Size(180, 22);
             appointmentMenuItem.Text = "Compromissos";
             appointmentMenuItem.Click += appointmentMenuItem_Click;
             // 
             // tasksMenuItem
             // 
             tasksMenuItem.Name = "tasksMenuItem";
-            tasksMenuItem.Size = new Size(154, 22);
+            tasksMenuItem.Size = new Size(180, 22);
             tasksMenuItem.Text = "Tarefas";
             tasksMenuItem.Click += tasksMenuItem_Click;
             // 
@@ -97,7 +97,7 @@
             // 
             despesasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { spendingsMenuItem, categoriesMenuItem });
             despesasToolStripMenuItem.Name = "despesasToolStripMenuItem";
-            despesasToolStripMenuItem.Size = new Size(154, 22);
+            despesasToolStripMenuItem.Size = new Size(180, 22);
             despesasToolStripMenuItem.Text = "Despesas";
             // 
             // spendingsMenuItem
@@ -112,14 +112,15 @@
             categoriesMenuItem.Size = new Size(130, 22);
             categoriesMenuItem.Text = "Categorias";
             // 
-            // toolStrip1
+            // toolbar
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInsert, btnEdit, btnDelete, toolStripSeparator1, btnFilter, toolStripSeparator2, btnAdd, btnConcludeItems, toolStripSeparator3, lblTypeRegistration });
-            toolStrip1.Location = new Point(0, 24);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(934, 45);
-            toolStrip1.TabIndex = 1;
-            toolStrip1.Text = "toolStrip1";
+            toolbar.Enabled = false;
+            toolbar.Items.AddRange(new ToolStripItem[] { btnInsert, btnEdit, btnDelete, toolStripSeparator1, btnFilter, toolStripSeparator2, btnAddItems, btnConcludeItems, toolStripSeparator3, lblTypeRegistration });
+            toolbar.Location = new Point(0, 24);
+            toolbar.Name = "toolbar";
+            toolbar.Size = new Size(934, 45);
+            toolbar.TabIndex = 1;
+            toolbar.Text = "toolStrip1";
             // 
             // btnInsert
             // 
@@ -179,17 +180,29 @@
             toolStripSeparator2.Name = "toolStripSeparator2";
             toolStripSeparator2.Size = new Size(6, 45);
             // 
-            // btnAdd
+            // btnAddItems
             // 
-            btnAdd.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnAdd.Image = Properties.Resources.library_add_FILL0_wght400_GRAD0_opsz24;
-            btnAdd.ImageScaling = ToolStripItemImageScaling.None;
-            btnAdd.ImageTransparentColor = Color.Magenta;
-            btnAdd.Name = "btnAdd";
-            btnAdd.Padding = new Padding(7);
-            btnAdd.Size = new Size(42, 42);
-            btnAdd.Text = "Adicionar Item";
-            btnAdd.Click += btnAdd_Click;
+            btnAddItems.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnAddItems.Image = Properties.Resources.library_add_FILL0_wght400_GRAD0_opsz24;
+            btnAddItems.ImageScaling = ToolStripItemImageScaling.None;
+            btnAddItems.ImageTransparentColor = Color.Magenta;
+            btnAddItems.Name = "btnAddItems";
+            btnAddItems.Padding = new Padding(7);
+            btnAddItems.Size = new Size(42, 42);
+            btnAddItems.Text = "Adicionar Item";
+            btnAddItems.Click += btnAdd_Click;
+            // 
+            // btnConcludeItems
+            // 
+            btnConcludeItems.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnConcludeItems.Image = Properties.Resources.check_box_FILL0_wght400_GRAD0_opsz24;
+            btnConcludeItems.ImageScaling = ToolStripItemImageScaling.None;
+            btnConcludeItems.ImageTransparentColor = Color.Magenta;
+            btnConcludeItems.Name = "btnConcludeItems";
+            btnConcludeItems.Padding = new Padding(7);
+            btnConcludeItems.Size = new Size(42, 42);
+            btnConcludeItems.Text = "Concluir Item";
+            btnConcludeItems.Click += btnConcludeItems_Click;
             // 
             // toolStripSeparator3
             // 
@@ -226,18 +239,6 @@
             panelRegisters.Size = new Size(934, 461);
             panelRegisters.TabIndex = 3;
             // 
-            // btnConclude
-            // 
-            btnConcludeItems.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnConcludeItems.Image = Properties.Resources.check_box_FILL0_wght400_GRAD0_opsz24;
-            btnConcludeItems.ImageScaling = ToolStripItemImageScaling.None;
-            btnConcludeItems.ImageTransparentColor = Color.Magenta;
-            btnConcludeItems.Name = "btnConclude";
-            btnConcludeItems.Padding = new Padding(7);
-            btnConcludeItems.Size = new Size(42, 42);
-            btnConcludeItems.Text = "Concluir Item";
-            btnConcludeItems.Click += btnConcludeItems_Click;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -245,7 +246,7 @@
             ClientSize = new Size(934, 552);
             Controls.Add(panelRegisters);
             Controls.Add(statusStrip1);
-            Controls.Add(toolStrip1);
+            Controls.Add(toolbar);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             MinimumSize = new Size(816, 489);
@@ -255,8 +256,8 @@
             Text = "eAgenda 1.0";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            toolStrip1.ResumeLayout(false);
-            toolStrip1.PerformLayout();
+            toolbar.ResumeLayout(false);
+            toolbar.PerformLayout();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             ResumeLayout(false);
@@ -273,7 +274,7 @@
         private ToolStripMenuItem despesasToolStripMenuItem;
         private ToolStripMenuItem spendingsMenuItem;
         private ToolStripMenuItem categoriesMenuItem;
-        private ToolStrip toolStrip1;
+        private ToolStrip toolbar;
         private ToolStripButton btnInsert;
         private ToolStripButton btnEdit;
         private ToolStripButton btnDelete;
@@ -284,7 +285,7 @@
         private ToolStripLabel lblTypeRegistration;
         private ToolStripButton btnFilter;
         private ToolStripSeparator toolStripSeparator2;
-        private ToolStripButton btnAdd;
+        private ToolStripButton btnAddItems;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripButton btnConcludeItems;
     }

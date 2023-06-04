@@ -1,6 +1,4 @@
-﻿using eAgenda.WinApp.AppointmentModule;
-
-namespace eAgenda.WinApp.ContactModule
+﻿namespace eAgenda.WinApp.ContactModule
 {
     public class ContactController : BaseController
     {
@@ -12,10 +10,8 @@ namespace eAgenda.WinApp.ContactModule
             this._contactRepository = contactRepository;
         }
 
-        public override string ToolTipAdd => "Inserir novo contato";
-
+        public override string ToolTipInsert => "Inserir novo contato";
         public override string ToolTipEdit => "Editar contato existente";
-
         public override string ToolTipDelete => "Excluir contato existente";
 
         public override void Insert()

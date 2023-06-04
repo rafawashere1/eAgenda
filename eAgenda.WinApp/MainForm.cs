@@ -17,6 +17,10 @@ namespace eAgenda.WinApp
         {
             InitializeComponent();
 
+            lblTypeRegistration.Text = "";
+
+            lblFooter.Text = "Bem-Vindo à eAgenda!";
+
             _mainForm = this;
         }
 
@@ -55,9 +59,18 @@ namespace eAgenda.WinApp
         {
             lblTypeRegistration.Text = controllerBase.GetTypeRegistration();
 
-            SetToolTips(controllerBase);
+            ConfigureToolbar(controllerBase);
 
             SetListing(controllerBase);
+        }
+
+        private void ConfigureToolbar(BaseController controllerBase)
+        {
+            toolbar.Enabled = true;
+
+            SetToolTips(controllerBase);
+
+            SetButtonStatus(controllerBase);
         }
 
         public void UpdateFooter(string text)
@@ -78,9 +91,22 @@ namespace eAgenda.WinApp
 
         private void SetToolTips(BaseController controllerBase)
         {
-            btnInsert.ToolTipText = controllerBase.ToolTipAdd;
+            btnInsert.ToolTipText = controllerBase.ToolTipInsert;
             btnEdit.ToolTipText = controllerBase.ToolTipEdit;
             btnDelete.ToolTipText = controllerBase.ToolTipDelete;
+            btnFilter.ToolTipText = controllerBase.ToolTipFilter;
+            btnAddItems.ToolTipText = controllerBase.ToolTipAddItems;
+            btnConcludeItems.ToolTipText = controllerBase.ToolTipConcludeItems;
+        }
+
+        private void SetButtonStatus(BaseController controllerBase)
+        {
+            btnInsert.Enabled = controllerBase.IsInsertEnabled;
+            btnEdit.Enabled = controllerBase.IsEditEnabled;
+            btnDelete.Enabled = controllerBase.IsDeleteEnabled;
+            btnFilter.Enabled = controllerBase.IsFilterEnabled;
+            btnAddItems.Enabled = controllerBase.IsAddItemsEnabled;
+            btnConcludeItems.Enabled = controllerBase.IsConcludeItemsEnabled;
         }
 
         private void btnInsert_Click(object sender, EventArgs e)

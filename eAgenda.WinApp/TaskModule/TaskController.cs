@@ -10,11 +10,16 @@
             _taskRepository = taskRepository;
         }
 
-        public override string ToolTipAdd => "Inserir nova tarefa";
-
+        public override string ToolTipInsert => "Inserir nova tarefa";
         public override string ToolTipEdit => "Editar tarefa existente";
-
         public override string ToolTipDelete => "Excluir tarefa existente";
+        public override string ToolTipFilter => "Filtrar tarefas";
+        public override string ToolTipAddItems => "Adicionar itens na tarefa";
+        public override string ToolTipConcludeItems => "Concluir itens da tarefa";
+
+        public override bool IsFilterEnabled => true;
+        public override bool IsAddItemsEnabled => true;
+        public override bool IsConcludeItemsEnabled => true;
 
         public override void Insert()
         {
@@ -34,7 +39,7 @@
 
         public override void Edit()
         {
-            Task selectedTask = _tableTask.GetSelectedTask();
+            Task selectedTask = GetSelectedTask();
 
             if (selectedTask == null)
             {
@@ -64,7 +69,7 @@
 
         public override void Delete()
         {
-            Task selectedTask = _tableTask.GetSelectedTask();
+            Task selectedTask = GetSelectedTask();
 
             if (selectedTask == null)
             {
@@ -113,7 +118,7 @@
 
         public override void Add()
         {
-            Task selectedTask = _tableTask.GetSelectedTask();
+            Task selectedTask = GetSelectedTask();
 
             if (selectedTask == null)
             {
@@ -146,7 +151,7 @@
 
         public override void ConcludeItems()
         {
-            Task selectedTask = _tableTask.GetSelectedTask();
+            Task selectedTask = GetSelectedTask();
 
             if (selectedTask == null)
             {
@@ -196,6 +201,11 @@
         public override string GetTypeRegistration()
         {
             return "Cadastro de Tarefas";
+        }
+
+        private Task GetSelectedTask()
+        {
+            return _taskRepository.SelectById(_tableTask.GetSelectedId());
         }
 
         private void LoadTasks()

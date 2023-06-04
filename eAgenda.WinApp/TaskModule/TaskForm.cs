@@ -20,7 +20,7 @@
 
             string title = txtTitle.Text;
 
-            PriorityTaskEnum priority = (PriorityTaskEnum)cmbPriority.SelectedItem;
+            PriorityTaskEnum priority = Utils.GetEnumValueFromDescription<PriorityTaskEnum>(cmbPriority.SelectedItem.ToString());
 
             DateTime creationDate = dtpCreationDate.Value;
 
@@ -46,7 +46,7 @@
 
             foreach (PriorityTaskEnum priorityEnum in priorities)
             {
-                cmbPriority.Items.Add(priorityEnum);
+                cmbPriority.Items.Add(priorityEnum.GetDescription());
             }
         }
     }

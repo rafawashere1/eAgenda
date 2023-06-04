@@ -14,11 +14,12 @@ namespace eAgenda.WinApp.AppointmentModule
             _contactRepository = contactRepository;
 
         }
-        public override string ToolTipAdd => "Inserir novo compromisso";
-
+        public override string ToolTipInsert => "Inserir novo compromisso";
         public override string ToolTipEdit => "Editar compromisso existente";
-
         public override string ToolTipDelete => "Excluir compromisso existente";
+        public override string ToolTipFilter => "Filtrar compromissos";
+
+        public override bool IsFilterEnabled => true;
 
         public override void Insert()
         {
