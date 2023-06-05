@@ -2,10 +2,10 @@
 {
     public class TaskController : BaseController
     {
-        private readonly TaskRepository _taskRepository;
+        private readonly ITaskRepository _taskRepository;
         private TableTaskControl _tableTask;
 
-        public TaskController(TaskRepository taskRepository)
+        public TaskController(ITaskRepository taskRepository)
         {
             _taskRepository = taskRepository;
         }
@@ -52,7 +52,6 @@
             }
 
             TaskForm taskForm = new(isEdit: true);
-
             taskForm.ConfigureForm(selectedTask);
 
             DialogResult dialogResult = taskForm.ShowDialog();
@@ -100,13 +99,13 @@
             {
                 List<Task> tasks = null;
 
-                StatusTaskEnum status = filterForm.GetFilterTask();
+                StatusTask status = filterForm.GetFilterTask();
 
                 switch (status)
                 {
-                    case StatusTaskEnum.Marked: tasks = _taskRepository.SelectMarkeds();
+                    case StatusTask.Marked: tasks = _taskRepository.SelectMarkeds();
                         break;
-                    case StatusTaskEnum.Unmarked: tasks = _taskRepository.SelectUnmarkeds();
+                    case StatusTask.Unmarked: tasks = _taskRepository.SelectUnmarkeds();
                         break;
                     default: tasks = _taskRepository.SelectAllOrdenedByPriority();
                         break;

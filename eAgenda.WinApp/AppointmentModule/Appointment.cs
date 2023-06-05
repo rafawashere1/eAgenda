@@ -11,10 +11,10 @@ namespace eAgenda.WinApp.AppointmentModule
         public Contact Contact { get; set; }
         public string InPersonAdress { get; set; }
         public string OnlineAdress { get; set; }
-        public TypeAppointmentEnum TypeAppointment { get; set; }
+        public TypeAppointment TypeAppointment { get; set; }
 
         public Appointment(string subject, DateTime date, TimeSpan startTime, TimeSpan endTime,
-            Contact contact, string adress, TypeAppointmentEnum typeAppointment)
+            Contact contact, string adress, TypeAppointment typeAppointment)
         {
             Subject = subject;
             Date = date;
@@ -23,7 +23,7 @@ namespace eAgenda.WinApp.AppointmentModule
             Contact = contact;;
             TypeAppointment = typeAppointment;
 
-            if (typeAppointment == TypeAppointmentEnum.Online)
+            if (typeAppointment == TypeAppointment.Online)
                 OnlineAdress = adress;
             else
                 InPersonAdress = adress;
@@ -43,7 +43,7 @@ namespace eAgenda.WinApp.AppointmentModule
             Contact = updatedRegister.Contact;
             TypeAppointment = updatedRegister.TypeAppointment;
 
-            if (updatedRegister.TypeAppointment == TypeAppointmentEnum.Online)
+            if (updatedRegister.TypeAppointment == TypeAppointment.Online)
                 OnlineAdress = updatedRegister.OnlineAdress;
             else
                 InPersonAdress = updatedRegister.InPersonAdress;

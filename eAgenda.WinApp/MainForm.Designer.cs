@@ -32,9 +32,9 @@
             menuStrip1 = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
             contactsMenuItem = new ToolStripMenuItem();
-            appointmentMenuItem = new ToolStripMenuItem();
+            appointmentsMenuItem = new ToolStripMenuItem();
             tasksMenuItem = new ToolStripMenuItem();
-            despesasToolStripMenuItem = new ToolStripMenuItem();
+            spendingsToolStripMenuItem = new ToolStripMenuItem();
             spendingsMenuItem = new ToolStripMenuItem();
             categoriesMenuItem = new ToolStripMenuItem();
             toolbar = new ToolStrip();
@@ -67,7 +67,7 @@
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contactsMenuItem, appointmentMenuItem, tasksMenuItem, despesasToolStripMenuItem });
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contactsMenuItem, appointmentsMenuItem, tasksMenuItem, spendingsToolStripMenuItem });
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(71, 20);
             cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -79,12 +79,12 @@
             contactsMenuItem.Text = "Contatos";
             contactsMenuItem.Click += contactsMenuItem_Click;
             // 
-            // appointmentMenuItem
+            // appointmentsMenuItem
             // 
-            appointmentMenuItem.Name = "appointmentMenuItem";
-            appointmentMenuItem.Size = new Size(180, 22);
-            appointmentMenuItem.Text = "Compromissos";
-            appointmentMenuItem.Click += appointmentMenuItem_Click;
+            appointmentsMenuItem.Name = "appointmentsMenuItem";
+            appointmentsMenuItem.Size = new Size(180, 22);
+            appointmentsMenuItem.Text = "Compromissos";
+            appointmentsMenuItem.Click += appointmentMenuItem_Click;
             // 
             // tasksMenuItem
             // 
@@ -93,24 +93,25 @@
             tasksMenuItem.Text = "Tarefas";
             tasksMenuItem.Click += tasksMenuItem_Click;
             // 
-            // despesasToolStripMenuItem
+            // spendingsToolStripMenuItem
             // 
-            despesasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { spendingsMenuItem, categoriesMenuItem });
-            despesasToolStripMenuItem.Name = "despesasToolStripMenuItem";
-            despesasToolStripMenuItem.Size = new Size(180, 22);
-            despesasToolStripMenuItem.Text = "Despesas";
+            spendingsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { spendingsMenuItem, categoriesMenuItem });
+            spendingsToolStripMenuItem.Name = "spendingsToolStripMenuItem";
+            spendingsToolStripMenuItem.Size = new Size(180, 22);
+            spendingsToolStripMenuItem.Text = "Despesas";
             // 
             // spendingsMenuItem
             // 
             spendingsMenuItem.Name = "spendingsMenuItem";
-            spendingsMenuItem.Size = new Size(130, 22);
+            spendingsMenuItem.Size = new Size(180, 22);
             spendingsMenuItem.Text = "Despesas";
             // 
             // categoriesMenuItem
             // 
             categoriesMenuItem.Name = "categoriesMenuItem";
-            categoriesMenuItem.Size = new Size(130, 22);
+            categoriesMenuItem.Size = new Size(180, 22);
             categoriesMenuItem.Text = "Categorias";
+            categoriesMenuItem.Click += categoriesMenuItem_Click;
             // 
             // toolbar
             // 
@@ -269,9 +270,9 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem cadastrosToolStripMenuItem;
         private ToolStripMenuItem contactsMenuItem;
-        private ToolStripMenuItem appointmentMenuItem;
+        private ToolStripMenuItem appointmentsMenuItem;
         private ToolStripMenuItem tasksMenuItem;
-        private ToolStripMenuItem despesasToolStripMenuItem;
+        private ToolStripMenuItem spendingsToolStripMenuItem;
         private ToolStripMenuItem spendingsMenuItem;
         private ToolStripMenuItem categoriesMenuItem;
         private ToolStrip toolbar;

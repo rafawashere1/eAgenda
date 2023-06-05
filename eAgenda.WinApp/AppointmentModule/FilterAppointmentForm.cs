@@ -7,19 +7,19 @@
             InitializeComponent();
         }
 
-        public StatusAppointmentEnum GetStatus()
+        public StatusAppointment GetStatus()
         {
             if (rdbFutures.Checked)
             {
-                return StatusAppointmentEnum.Futures;
+                return StatusAppointment.Futures;
             }
             else if (rdbPasts.Checked)
             {
-                return StatusAppointmentEnum.Pasts;
+                return StatusAppointment.Pasts;
             }
             else
             {
-                return StatusAppointmentEnum.All;
+                return StatusAppointment.All;
             }
         }
 

@@ -1,8 +1,8 @@
 ﻿namespace eAgenda.WinApp.TaskModule
 {
-    public class TaskRepository : BaseRepository<Task>
+    public class RAMTaskRepository : RAMBaseRepository<Task>, ITaskRepository
     {
-        public TaskRepository(List<Task> tasks)
+        public RAMTaskRepository(List<Task> tasks)
         {
             registersList = tasks;
         }

@@ -1,6 +1,6 @@
 ﻿namespace eAgenda.WinApp.AppointmentModule
 {
-    public class AppointmentRepository : BaseRepository<Appointment>
+    public class AppointmentRepository : RAMBaseRepository<Appointment>
     {
         public AppointmentRepository(List<Appointment> appointments)
         {

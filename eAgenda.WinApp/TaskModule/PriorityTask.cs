@@ -1,6 +1,6 @@
 ﻿namespace eAgenda.WinApp.TaskModule
 {
-    public enum PriorityTaskEnum
+    public enum PriorityTask
     {
         [Description("Baixa")]
         Low,

@@ -6,7 +6,7 @@
         {
             Font font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 
-            DataGridViewCellStyle linhaEscura = new DataGridViewCellStyle
+            DataGridViewCellStyle darkLine = new DataGridViewCellStyle
             {
                 BackColor = Color.LightGray,
                 Font = font,
@@ -15,9 +15,9 @@
                 SelectionForeColor = Color.Black
             };
 
-            grid.AlternatingRowsDefaultCellStyle = linhaEscura;
+            grid.AlternatingRowsDefaultCellStyle = darkLine;
 
-            DataGridViewCellStyle linhaClara = new DataGridViewCellStyle
+            DataGridViewCellStyle lightLine = new DataGridViewCellStyle
             {
                 BackColor = Color.White,
                 Font = font,
@@ -25,7 +25,7 @@
                 SelectionForeColor = Color.Black
             };
 
-            grid.RowsDefaultCellStyle = linhaClara;
+            grid.RowsDefaultCellStyle = lightLine;
         }
 
         public static void ConfigureGridReadOnly(this DataGridView grid)

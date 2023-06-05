@@ -1,6 +1,6 @@
 ﻿namespace eAgenda.WinApp.AppointmentModule
 {
-    public enum TypeAppointmentEnum
+    public enum TypeAppointment
     {
         None, Online, InPerson
     }

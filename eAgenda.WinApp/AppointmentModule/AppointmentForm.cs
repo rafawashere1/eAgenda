@@ -27,7 +27,7 @@ namespace eAgenda.WinApp.AppointmentModule
 
             Contact contact = cmbContact.SelectedItem as Contact;
 
-            TypeAppointmentEnum type = rdbOnline.Checked ? TypeAppointmentEnum.Online : TypeAppointmentEnum.InPerson;
+            TypeAppointment type = rdbOnline.Checked ? TypeAppointment.Online : TypeAppointment.InPerson;
 
             string adress;
 
@@ -58,7 +58,7 @@ namespace eAgenda.WinApp.AppointmentModule
                 cmbContact.SelectedItem = selectedAppointment.Contact;
             }
 
-            if (selectedAppointment.TypeAppointment == TypeAppointmentEnum.InPerson)
+            if (selectedAppointment.TypeAppointment == TypeAppointment.InPerson)
             {
                 rdbInPerson.Checked = true;
                 txtInPerson.Text = selectedAppointment.InPersonAdress;

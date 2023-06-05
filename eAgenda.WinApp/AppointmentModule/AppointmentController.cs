@@ -102,19 +102,19 @@ namespace eAgenda.WinApp.AppointmentModule
 
             if (dialogResult == DialogResult.OK)
             {
-                StatusAppointmentEnum status = filterForm.GetStatus();
+                StatusAppointment status = filterForm.GetStatus();
                 List<Appointment> appointments = null;
 
-                if (status == StatusAppointmentEnum.All)
+                if (status == StatusAppointment.All)
                 {
                     appointments = _appointmentRepository.SelectAll();
                 }
 
-                else if (status == StatusAppointmentEnum.Pasts)
+                else if (status == StatusAppointment.Pasts)
                 {
                     appointments = _appointmentRepository.SelectPastAppointments(DateTime.Now);                 
                 }
-                else if (status == StatusAppointmentEnum.Futures)
+                else if (status == StatusAppointment.Futures)
                 {
                     DateTime startTime = filterForm.GetStartTime();
                     DateTime endTime = filterForm.GetEndTime();

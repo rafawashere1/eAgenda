@@ -7,14 +7,14 @@
             InitializeComponent();
         }
 
-        public StatusTaskEnum GetFilterTask()
+        public StatusTask GetFilterTask()
         {
             if (rdbMarkeds.Checked)
-                return StatusTaskEnum.Marked;
+                return StatusTask.Marked;
             else if (rdbUnmarkeds.Checked)
-                return StatusTaskEnum.Unmarked;
+                return StatusTask.Unmarked;
             else
-                return StatusTaskEnum.All;
+                return StatusTask.All;
         }
     }
 }

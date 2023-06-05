@@ -1,6 +1,6 @@
 ﻿namespace eAgenda.WinApp.TaskModule
 {
-    public enum StatusTaskEnum
+    public enum StatusTask
     {
         All, Unmarked, Marked
     }

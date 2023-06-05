@@ -44,6 +44,8 @@
 
         public void UpdateRegisters(List<Task> tasks)
         {
+            grid.Rows.Clear();
+
             foreach (Task task in tasks)
             {
                 if (task != null)

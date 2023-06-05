@@ -1,6 +1,6 @@
 ﻿namespace eAgenda.WinApp.AppointmentModule
 {
-    public enum StatusAppointmentEnum
+    public enum StatusAppointment
     {
         All, Pasts, Futures
     }

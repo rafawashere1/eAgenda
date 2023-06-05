@@ -3,12 +3,12 @@
     public class Task : BaseEntity<Task>
     {
         public string Title { get; set; }
-        public PriorityTaskEnum Priority { get; set; }
+        public PriorityTask Priority { get; set; }
         public DateTime CreationDate { get; set; }
         public List<TaskItem> Items { get; set; }
         public decimal CompletionPercentage { get; set; }
 
-        public Task(string title, PriorityTaskEnum priority, DateTime creationDate)
+        public Task(string title, PriorityTask priority, DateTime creationDate)
         {
             Title = title;
             Priority = priority;

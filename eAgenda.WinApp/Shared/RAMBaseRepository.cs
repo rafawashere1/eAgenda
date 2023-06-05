@@ -1,6 +1,6 @@
 ﻿namespace eAgenda.WinApp.Shared
 {
-    public class BaseRepository<T> where T : BaseEntity<T>
+    public class RAMBaseRepository<T> where T : BaseEntity<T>
     {
         protected List<T> registersList;
         protected int registersCounter = 0;
