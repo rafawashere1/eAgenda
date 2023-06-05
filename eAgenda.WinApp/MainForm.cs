@@ -11,7 +11,7 @@ namespace eAgenda.WinApp
         private BaseController _controller;
         private readonly ContactRepository _contactRepository = new(new List<Contact>());
         private readonly AppointmentRepository _appointmentRepository = new(new List<Appointment>());
-        private readonly ITaskRepository _taskRepository = new RAMTaskRepository(new List<Task>());
+        private readonly ITaskRepository _taskRepository = new FileTaskRepository();
         private readonly CategoryRepository _categoryRepository = new(new List<Category>());
 
         private static MainForm _mainForm;

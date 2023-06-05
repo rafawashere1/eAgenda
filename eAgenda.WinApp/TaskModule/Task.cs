@@ -1,5 +1,6 @@
 ﻿namespace eAgenda.WinApp.TaskModule
 {
+    [Serializable]
     public class Task : BaseEntity<Task>
     {
         public string Title { get; set; }

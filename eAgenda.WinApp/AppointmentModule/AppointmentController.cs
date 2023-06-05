@@ -105,21 +105,24 @@ namespace eAgenda.WinApp.AppointmentModule
                 StatusAppointment status = filterForm.GetStatus();
                 List<Appointment> appointments = null;
 
-                if (status == StatusAppointment.All)
+                switch (status)
                 {
-                    appointments = _appointmentRepository.SelectAll();
-                }
+                    case StatusAppointment.All:
+                        appointments = _appointmentRepository.SelectAll();
+                        break;
 
-                else if (status == StatusAppointment.Pasts)
-                {
-                    appointments = _appointmentRepository.SelectPastAppointments(DateTime.Now);                 
-                }
-                else if (status == StatusAppointment.Futures)
-                {
-                    DateTime startTime = filterForm.GetStartTime();
-                    DateTime endTime = filterForm.GetEndTime();
+                    case StatusAppointment.Pasts:
+                        appointments = _appointmentRepository.SelectPastAppointments(DateTime.Now);
+                        break;
 
-                    appointments = _appointmentRepository.SelectFutureAppointments(startTime, endTime);
+                    case StatusAppointment.Futures:
+                        {
+                            DateTime startTime = filterForm.GetStartTime();
+                            DateTime endTime = filterForm.GetEndTime();
+
+                            appointments = _appointmentRepository.SelectFutureAppointments(startTime, endTime);
+                            break;
+                        }
                 }
 
                 LoadAppointments(appointments);

@@ -1,5 +1,6 @@
 ﻿namespace eAgenda.WinApp.Shared
 {
+    [Serializable]
     public abstract class BaseEntity<T>
     {
         public int Id { get; set; }

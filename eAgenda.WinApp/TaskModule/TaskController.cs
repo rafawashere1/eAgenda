@@ -84,7 +84,7 @@
                     "Exclusão de Tarefas", MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.OK)
-                _taskRepository.Delete(selectedTask.Id);
+                _taskRepository.Delete(selectedTask);
 
             LoadTasks();
         }
@@ -97,17 +97,21 @@
 
             if (dialogResult == DialogResult.OK)
             {
-                List<Task> tasks = null;
-
                 StatusTask status = filterForm.GetFilterTask();
 
+                List<Task> tasks;
                 switch (status)
                 {
-                    case StatusTask.Marked: tasks = _taskRepository.SelectMarkeds();
+                    case StatusTask.Marked:
+                        tasks = _taskRepository.SelectMarkeds();
                         break;
-                    case StatusTask.Unmarked: tasks = _taskRepository.SelectUnmarkeds();
+
+                    case StatusTask.Unmarked:
+                        tasks = _taskRepository.SelectUnmarkeds();
                         break;
-                    default: tasks = _taskRepository.SelectAllOrdenedByPriority();
+
+                    default:
+                        tasks = _taskRepository.SelectAllOrdenedByPriority();
                         break;
                 }
 

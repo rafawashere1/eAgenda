@@ -1,5 +1,6 @@
 ﻿namespace eAgenda.WinApp.TaskModule
 {
+    [Serializable]
     public class TaskItem
     {
         public string Title { get; set; }
