@@ -9,6 +9,11 @@
         public List<TaskItem> Items { get; set; }
         public decimal CompletionPercentage { get; set; }
 
+        public Task()
+        {
+            
+        }
+
         public Task(string title, PriorityTask priority, DateTime creationDate)
         {
             Title = title;

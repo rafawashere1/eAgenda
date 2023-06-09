@@ -6,6 +6,11 @@
         public string Title { get; set; }
         public bool Concluded { get; set; }
 
+        public TaskItem()
+        {
+            
+        }
+
         public TaskItem(string title)
         {
             Title = title;

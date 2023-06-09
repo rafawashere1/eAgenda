@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
 
 namespace eAgenda.WinApp.TaskModule
 {
@@ -8,7 +9,7 @@ namespace eAgenda.WinApp.TaskModule
 
         private List<Task> _tasks = new();
 
-        private const string TASK_FILE_NAME = "C:\\temp\\tasks\\dados-tasks.bin";
+        private const string TASK_FILE_NAME = "TaskModule/Tasks.xml";
 
         public FileTaskRepository()
         {
@@ -61,14 +62,11 @@ namespace eAgenda.WinApp.TaskModule
             return _tasks.OrderByDescending(x => x.Priority).ToList();
         }
 
-        private List<Task> SelectAll()
-        {
-            return _tasks;
-        }
-
         private void SendTasksToFile()
         {
-            BinaryFormatter serializer = new();
+            //BinaryFormatter serializer = new();
+
+            XmlSerializer serializer = new(typeof(List<Task>));
 
             MemoryStream taskStream = new();
 
@@ -79,7 +77,9 @@ namespace eAgenda.WinApp.TaskModule
 
         private void LoadTasksFromFile()
         {
-            BinaryFormatter serializer = new();
+            //BinaryFormatter serializer = new();
+
+            XmlSerializer serializer = new(typeof(List<Task>));
 
             MemoryStream taskStream = new(File.ReadAllBytes(TASK_FILE_NAME));
 
