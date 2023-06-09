@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.Json;
 using System.Xml.Serialization;
 
 namespace eAgenda.WinApp.TaskModule
@@ -9,12 +10,12 @@ namespace eAgenda.WinApp.TaskModule
 
         private List<Task> _tasks = new();
 
-        private const string TASK_FILE_NAME = "TaskModule/Tasks.xml";
+        private const string TASK_FILE_NAME = "TaskModule/Tasks.json";
 
         public FileTaskRepository()
         {
             if (File.Exists(TASK_FILE_NAME))
-                LoadTasksFromFile();
+                LoadTasksFromJsonFile();
         }
 
         public void Insert(Task task)
@@ -25,21 +26,21 @@ namespace eAgenda.WinApp.TaskModule
 
             _tasks.Add(task);
             
-            SendTasksToFile();
+            SendTasksToJsonFile();
         }
 
         public void Edit(int id, Task task)
         {
             SelectById(id).UpdateInfos(task);
 
-            SendTasksToFile();
+            SendTasksToJsonFile();
         }
 
         public void Delete(Task task)
         {
             _tasks.Remove(task);
             
-            SendTasksToFile();
+            SendTasksToJsonFile();
         }
 
         public Task SelectById(int id)
@@ -62,10 +63,40 @@ namespace eAgenda.WinApp.TaskModule
             return _tasks.OrderByDescending(x => x.Priority).ToList();
         }
 
-        private void SendTasksToFile()
+        private void SendTasksToBinaryFile()
         {
-            //BinaryFormatter serializer = new();
+            BinaryFormatter serializer = new();
 
+            MemoryStream taskStream = new();
+
+            serializer.Serialize(taskStream, _tasks);
+
+            File.WriteAllBytes(TASK_FILE_NAME, taskStream.ToArray());
+        }
+
+        private void LoadTasksFromBinaryFile()
+        {
+            BinaryFormatter serializer = new();
+
+            MemoryStream taskStream = new(File.ReadAllBytes(TASK_FILE_NAME));
+
+            _tasks = serializer.Deserialize(taskStream) as List<Task>;
+
+            UpdateCounter();
+        }
+
+        private void SendTasksToJsonFile()
+        {
+            File.WriteAllText(TASK_FILE_NAME, JsonSerializer.Serialize(_tasks));
+        }
+
+        private void LoadTasksFromJsonFile()
+        {
+            _tasks = JsonSerializer.Deserialize<List<Task>>(File.ReadAllText(TASK_FILE_NAME));
+        }
+
+        private void SendTasksToXmlFile()
+        {
             XmlSerializer serializer = new(typeof(List<Task>));
 
             MemoryStream taskStream = new();
@@ -75,10 +106,8 @@ namespace eAgenda.WinApp.TaskModule
             File.WriteAllBytes(TASK_FILE_NAME, taskStream.ToArray());
         }
 
-        private void LoadTasksFromFile()
+        private void LoadTasksFromXmlFile()
         {
-            //BinaryFormatter serializer = new();
-
             XmlSerializer serializer = new(typeof(List<Task>));
 
             MemoryStream taskStream = new(File.ReadAllBytes(TASK_FILE_NAME));

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTask xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Task>
+		<Id>1</Id>
+		<Title>Testar Cadastro Tarefa em XML</Title>
+		<Priority>High</Priority>
+		<CreationDate>2023-06-09T16:08:35.5629551-03:00</CreationDate>
+		<Items />
+		<CompletionPercentage>100</CompletionPercentage>
+	</Task>
+	<Task>
+		<Id>2</Id>
+		<Title>Testar Novamente</Title>
+		<Priority>Medium</Priority>
+		<CreationDate>2023-06-09T16:08:54.7651175-03:00</CreationDate>
+		<Items />
+		<CompletionPercentage>100</CompletionPercentage>
+	</Task>
+	<Task>
+		<Id>3</Id>
+		<Title>Testar Pela Terceira Vez</Title>
+		<Priority>Low</Priority>
+		<CreationDate>2023-06-09T16:09:08.3034447-03:00</CreationDate>
+		<Items />
+		<CompletionPercentage>100</CompletionPercentage>
+	</Task>
+	<Task>
+		<Id>4</Id>
+		<Title>Teste em XML de Prioridade Média</Title>
+		<Priority>Medium</Priority>
+		<CreationDate>2023-06-09T16:09:19.8782161-03:00</CreationDate>
+		<Items />
+		<CompletionPercentage>100</CompletionPercentage>
+	</Task>
+	<Task>
+		<Id>5</Id>
+		<Title>Teste em XML de Prioridade Baixa</Title>
+		<Priority>Low</Priority>
+		<CreationDate>2023-06-09T17:01:24.8685167-03:00</CreationDate>
+		<Items />
+		<CompletionPercentage>100</CompletionPercentage>
+	</Task>
+</ArrayOfTask>
