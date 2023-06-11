@@ -2,10 +2,10 @@
 {
     public class ContactController : BaseController
     {
-        private readonly ContactRepository _contactRepository;
+        private readonly IContactRepository _contactRepository;
         private ListingContactControl _listingContact;
 
-        public ContactController(ContactRepository contactRepository)
+        public ContactController(IContactRepository contactRepository)
         {
             this._contactRepository = contactRepository;
         }
@@ -84,7 +84,7 @@
 
         private void LoadContacts()
         {
-            List<Contact> contacts = _contactRepository.SelectAll();
+            List<Contact> contacts = _contactRepository.GetAll();
 
             _listingContact.UpdateRegisters(contacts);
 

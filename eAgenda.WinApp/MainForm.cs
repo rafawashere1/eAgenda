@@ -9,10 +9,13 @@ namespace eAgenda.WinApp
     public partial class MainForm : Form
     {
         private BaseController _controller;
-        private readonly ContactRepository _contactRepository = new(new List<Contact>());
-        private readonly AppointmentRepository _appointmentRepository = new(new List<Appointment>());
-        private readonly ITaskRepository _taskRepository = new FileTaskRepository();
-        private readonly CategoryRepository _categoryRepository = new(new List<Category>());
+
+        private static DataContext _dataContext = new();
+
+        private readonly IContactRepository _contactRepository = new FileContactRepository(_dataContext);
+        private readonly IAppointmentRepository _appointmentRepository = new FileAppointmentRepository(_dataContext);
+        private readonly ITaskRepository _taskRepository = new FileTaskRepository(_dataContext);
+        private readonly ICategoryRepository _categoryRepository = new FileCategoryRepository(_dataContext);
 
         private static MainForm _mainForm;
         public MainForm()

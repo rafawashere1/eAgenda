@@ -4,11 +4,11 @@ namespace eAgenda.WinApp.AppointmentModule
 {
     public class AppointmentController : BaseController
     {
-        private readonly AppointmentRepository _appointmentRepository;
-        private readonly ContactRepository _contactRepository;
+        private readonly IAppointmentRepository _appointmentRepository;
+        private readonly IContactRepository _contactRepository;
         private ListingAppointmentControl _listingAppointment;
 
-        public AppointmentController(AppointmentRepository appointmentRepository, ContactRepository contactRepository)
+        public AppointmentController(IAppointmentRepository appointmentRepository, IContactRepository contactRepository)
         {
             this._appointmentRepository = appointmentRepository;
             _contactRepository = contactRepository;
@@ -23,7 +23,7 @@ namespace eAgenda.WinApp.AppointmentModule
 
         public override void Insert()
         {
-            List<Contact> contacts = _contactRepository.SelectAll();
+            List<Contact> contacts = _contactRepository.GetAll();
 
             AppointmentForm appointmentForm = new(contacts);
 
@@ -53,7 +53,7 @@ namespace eAgenda.WinApp.AppointmentModule
                 return;
             }
 
-            List<Contact> contacts = _contactRepository.SelectAll();
+            List<Contact> contacts = _contactRepository.GetAll();
 
             AppointmentForm appointmentForm = new(contacts);
 
@@ -108,7 +108,7 @@ namespace eAgenda.WinApp.AppointmentModule
                 switch (status)
                 {
                     case StatusAppointment.All:
-                        appointments = _appointmentRepository.SelectAll();
+                        appointments = _appointmentRepository.GetAll();
                         break;
 
                     case StatusAppointment.Pasts:
@@ -147,7 +147,7 @@ namespace eAgenda.WinApp.AppointmentModule
 
         private void LoadAppointments()
         {
-            List<Appointment> appointments = _appointmentRepository.SelectAll();
+            List<Appointment> appointments = _appointmentRepository.GetAll();
 
             _listingAppointment.UpdateRegisters(appointments);
 

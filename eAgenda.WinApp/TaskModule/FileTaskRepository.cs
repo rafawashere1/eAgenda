@@ -2,30 +2,29 @@
 {
     public class FileTaskRepository : FileBaseRepository<Task>, ITaskRepository
     {
-
-        public FileTaskRepository()
+        public FileTaskRepository(DataContext dataContext) : base(dataContext)
         {
-            if (File.Exists(GetFileName()))
-                LoadRegistersFromJsonFile();
+
         }
+
         public List<Task>? SelectMarkeds()
         {
-            return registers.Where(x => x.CompletionPercentage == 100).ToList();
+            return GetRegisters().Where(x => x.CompletionPercentage == 100).ToList();
         }
 
         public List<Task>? SelectUnmarkeds()
         {
-            return registers.Where(x => x.CompletionPercentage < 100).ToList();
+            return GetRegisters().Where(x => x.CompletionPercentage < 100).ToList();
         }
 
         public List<Task>? SelectAllOrdenedByPriority()
         {
-            return registers.OrderByDescending(x => x.Priority).ToList();
+            return GetRegisters().OrderByDescending(x => x.Priority).ToList();
         }
 
-        protected override string GetFileName()
+        protected override List<Task> GetRegisters()
         {
-            return "TaskModule/Tasks.json";
+            return DataContext.Tasks;
         }
     }
 }

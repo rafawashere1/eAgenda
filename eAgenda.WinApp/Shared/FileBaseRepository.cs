@@ -1,123 +1,60 @@
-﻿using System.Runtime.Serialization.Formatters.Binary;
-using System.Text.Json;
-using System.Xml.Serialization;
-
-namespace eAgenda.WinApp.Shared
+﻿namespace eAgenda.WinApp.Shared
 {
     public abstract class FileBaseRepository<T> where T : BaseEntity<T>
     {
-        protected int counter;
+        protected int Counter { get; set; }
+        protected DataContext DataContext { get; set; }
 
-        protected List<T> registers;
-
-        public FileBaseRepository()
+        public FileBaseRepository(DataContext dataContext)
         {
-            if (File.Exists(GetFileName()))
-                LoadRegistersFromJsonFile();
-
-            registers = new List<T>();
+            DataContext = dataContext;
+            DataContext.LoadRegistersFromJsonFile();
+            UpdateCounter();
         }
 
         public void Insert(T register)
         {
-            counter++;
+            List<T> registers = GetRegisters();
 
-            register.Id = counter;
+            Counter++;
+
+            register.Id = Counter;
 
             registers.Add(register);
 
-            SendRegistersToJsonFile();
+            DataContext.SendRegistersToJsonFile();
         }
 
         public void Edit(int id, T register)
         {
             SelectById(id).UpdateInfos(register);
 
-            SendRegistersToJsonFile();
+            DataContext.SendRegistersToJsonFile();
         }
 
         public void Delete(T register)
         {
-            registers.Remove(register);
+            GetRegisters().Remove(register);
 
-            SendRegistersToJsonFile();
+            DataContext.SendRegistersToJsonFile();
         }
 
         public T SelectById(int id)
         {
-            return registers.FirstOrDefault(x => x.Id == id);
+            return GetRegisters().FirstOrDefault(x => x.Id == id);
         }
 
         public List<T> GetAll()
         {
-            return registers;
+            return GetRegisters();
         }
 
         private void UpdateCounter()
         {
-            counter = registers.Max(x => x.Id);
+            if (GetRegisters().Count > 0)
+                Counter = GetRegisters().Max(x => x.Id);
         }
 
-        #region Binary Serializer
-        protected void SendRegistersToBinaryFile()
-        {
-            BinaryFormatter serializer = new();
-
-            MemoryStream stream = new();
-
-            serializer.Serialize(stream, registers);
-
-            File.WriteAllBytes(GetFileName(), stream.ToArray());
-        }
-
-        protected void LoadRegistersFromBinaryFile()
-        {
-            BinaryFormatter serializer = new();
-
-            MemoryStream stream = new(File.ReadAllBytes(GetFileName()));
-
-            registers = serializer.Deserialize(stream) as List<T>;
-
-            UpdateCounter();
-        }
-        #endregion
-
-        #region Json Serializer
-        protected void SendRegistersToJsonFile()
-        {
-            File.WriteAllText(GetFileName(), JsonSerializer.Serialize(registers));
-        }
-
-        protected void LoadRegistersFromJsonFile()
-        {
-            registers = JsonSerializer.Deserialize<List<T>>(File.ReadAllText(GetFileName()));
-        }
-        #endregion
-
-        #region Xml Serializer
-        protected void SendRegistersToXmlFile()
-        {
-            XmlSerializer serializer = new(typeof(List<T>));
-
-            MemoryStream stream = new();
-
-            serializer.Serialize(stream, registers);
-
-            File.WriteAllBytes(GetFileName(), stream.ToArray());
-        }
-
-        protected void LoadRegistersFromXmlFile()
-        {
-            XmlSerializer serializer = new(typeof(List<T>));
-
-            MemoryStream stream = new(File.ReadAllBytes(GetFileName()));
-
-            registers = serializer.Deserialize(stream) as List<T>;
-
-            UpdateCounter();
-        }
-        #endregion
-
-        protected abstract string GetFileName();
+        protected abstract List<T> GetRegisters();
     }
 }

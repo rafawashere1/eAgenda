@@ -1,10 +1,8 @@
-﻿using eAgenda.WinApp.TaskModule;
-
-namespace eAgenda.WinApp.SpendingModule
+﻿namespace eAgenda.WinApp.SpendingModule
 {
     public class CategoryController : BaseController
     {
-        private readonly CategoryRepository _categoryRepository;
+        private readonly ICategoryRepository _categoryRepository;
         private TableCategoryControl _tableCategory;
 
         public override string ToolTipInsert => "Inserir nova categoria";
@@ -13,7 +11,7 @@ namespace eAgenda.WinApp.SpendingModule
 
         public override string ToolTipDelete => "Excluir categoria existente";
 
-        public CategoryController(CategoryRepository categoryRepository)
+        public CategoryController(ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
         }
@@ -79,7 +77,7 @@ namespace eAgenda.WinApp.SpendingModule
                     "Exclusão de Categorias", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (dialogResult == DialogResult.OK)
-                _categoryRepository.Delete(selectedCategory.Id);
+                _categoryRepository.Delete(selectedCategory);
 
             LoadCategories();
         }
@@ -107,7 +105,7 @@ namespace eAgenda.WinApp.SpendingModule
 
         private void LoadCategories()
         {
-            List<Category> categories = _categoryRepository.SelectAll();
+            List<Category> categories = _categoryRepository.GetAll();
             _tableCategory.updateCategories(categories);
 
             MainForm.Instance.UpdateFooter($"Visualizando {categories.Count} categoria(s)");
