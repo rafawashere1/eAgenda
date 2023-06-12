@@ -10,7 +10,6 @@ using eAgenda.WinApp.ContactModule;
 using eAgenda.WinApp.AppointmentModule;
 using eAgenda.WinApp.TaskModule;
 using eAgenda.WinApp.SpendingModule;
-using Task = eAgenda.Domain.TaskModule.Task;
 
 namespace eAgenda.WinApp
 {
