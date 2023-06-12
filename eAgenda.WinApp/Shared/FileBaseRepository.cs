@@ -8,7 +8,6 @@
         public FileBaseRepository(DataContext dataContext)
         {
             DataContext = dataContext;
-            DataContext.LoadRegistersFromJsonFile();
             UpdateCounter();
         }
 

@@ -10,7 +10,7 @@ namespace eAgenda.WinApp
     {
         private BaseController _controller;
 
-        private static DataContext _dataContext = new();
+        private static DataContext _dataContext = new(loadData: true);
 
         private readonly IContactRepository _contactRepository = new FileContactRepository(_dataContext);
         private readonly IAppointmentRepository _appointmentRepository = new FileAppointmentRepository(_dataContext);

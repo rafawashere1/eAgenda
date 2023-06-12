@@ -5,6 +5,11 @@
         public string Title { get; set; }
         public List<Spending> Spendings { get; set; }
 
+        public Category()
+        {
+            
+        }
+
         public Category(string title)
         {
             Title = title;

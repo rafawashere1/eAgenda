@@ -10,6 +10,10 @@ namespace eAgenda.WinApp.ContactModule
         public string Company { get; set; }
         public string JobTitle { get; set; }
 
+        public Contact()
+        {
+            
+        }
         public Contact(string name, string phone, string email, string company, string jobTitle)
         {
             Name = name;

@@ -13,6 +13,11 @@ namespace eAgenda.WinApp.AppointmentModule
         public string OnlineAdress { get; set; }
         public TypeAppointment TypeAppointment { get; set; }
 
+        public Appointment()
+        {
+            
+        }
+
         public Appointment(string subject, DateTime date, TimeSpan startTime, TimeSpan endTime,
             Contact contact, string adress, TypeAppointment typeAppointment)
         {

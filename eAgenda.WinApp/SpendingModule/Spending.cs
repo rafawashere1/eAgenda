@@ -8,6 +8,11 @@
         public PaymentMethod PaymentMethod { get; set; }
         public List<Category> Categories { get; set; }
 
+        public Spending()
+        {
+            
+        }
+
         public Spending(string description, DateTime date, decimal value, PaymentMethod paymentMethod)
         {
             Description = description;
