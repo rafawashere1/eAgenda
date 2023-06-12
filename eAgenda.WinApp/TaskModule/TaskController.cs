@@ -1,4 +1,7 @@
-﻿namespace eAgenda.WinApp.TaskModule
+﻿using eAgenda.Domain.TaskModule;
+using Task = eAgenda.Domain.TaskModule.Task;
+
+namespace eAgenda.WinApp.TaskModule
 {
     public class TaskController : BaseController
     {

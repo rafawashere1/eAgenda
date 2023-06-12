@@ -1,4 +1,6 @@
-﻿namespace eAgenda.WinApp.Shared
+﻿using eAgenda.Domain.Shared;
+
+namespace eAgenda.WinApp.Shared
 {
     public static class Utils
     {

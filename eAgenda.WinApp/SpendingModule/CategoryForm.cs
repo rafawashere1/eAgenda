@@ -1,4 +1,6 @@
-﻿namespace eAgenda.WinApp.SpendingModule
+﻿using eAgenda.Domain.SpendingModule;
+
+namespace eAgenda.WinApp.SpendingModule
 {
     public partial class CategoryForm : Form
     {

@@ -1,4 +1,6 @@
-﻿namespace eAgenda.WinApp.SpendingModule
+﻿using eAgenda.Domain.SpendingModule;
+
+namespace eAgenda.WinApp.SpendingModule
 {
     public class CategoryController : BaseController
     {
@@ -106,7 +108,7 @@
         private void LoadCategories()
         {
             List<Category> categories = _categoryRepository.GetAll();
-            _tableCategory.updateCategories(categories);
+            _tableCategory.UpdateCategories(categories);
 
             MainForm.Instance.UpdateFooter($"Visualizando {categories.Count} categoria(s)");
         }

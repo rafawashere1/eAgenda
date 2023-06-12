@@ -1,8 +1,16 @@
+using eAgenda.Domain.ContactModule;
+using eAgenda.Domain.AppointmentModule;
+using eAgenda.Domain.TaskModule;
+using eAgenda.Domain.SpendingModule;
+using eAgenda.Infra.Data.File.ContactModule;
+using eAgenda.Infra.Data.File.AppointmentModule;
+using eAgenda.Infra.Data.File.TaskModule;
+using eAgenda.Infra.Data.File.SpendingModule;
 using eAgenda.WinApp.ContactModule;
 using eAgenda.WinApp.AppointmentModule;
 using eAgenda.WinApp.TaskModule;
-using Task = eAgenda.WinApp.TaskModule.Task;
 using eAgenda.WinApp.SpendingModule;
+using Task = eAgenda.Domain.TaskModule.Task;
 
 namespace eAgenda.WinApp
 {

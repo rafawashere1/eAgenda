@@ -1,4 +1,5 @@
-﻿using eAgenda.WinApp.ContactModule;
+﻿using eAgenda.Domain.AppointmentModule;
+using eAgenda.Domain.ContactModule;
 
 namespace eAgenda.WinApp.AppointmentModule
 {

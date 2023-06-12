@@ -1,4 +1,4 @@
-﻿using System.Windows.Forms;
+﻿using eAgenda.Domain.SpendingModule;
 
 namespace eAgenda.WinApp.SpendingModule
 {
@@ -29,7 +29,7 @@ namespace eAgenda.WinApp.SpendingModule
             grid.Columns.Add(id);
             grid.Columns.Add(title);
         }
-        public void updateCategories(List<Category> categories)
+        public void UpdateCategories(List<Category> categories)
         {
             grid.Rows.Clear();
 

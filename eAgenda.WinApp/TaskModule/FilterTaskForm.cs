@@ -1,4 +1,6 @@
-﻿namespace eAgenda.WinApp.TaskModule
+﻿using eAgenda.Domain.TaskModule;
+
+namespace eAgenda.WinApp.TaskModule
 {
     public partial class FilterTaskForm : Form
     {
