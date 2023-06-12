@@ -1,4 +1,6 @@
-﻿namespace eAgenda.WinApp.ContactModule
+﻿using eAgenda.Domain.ContactModule;
+
+namespace eAgenda.WinApp.ContactModule
 {
     public class ContactController : BaseController
     {

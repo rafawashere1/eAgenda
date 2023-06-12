@@ -1,4 +1,8 @@
-﻿namespace eAgenda.WinApp.TaskModule
+﻿using eAgenda.Domain.TaskModule;
+using Task = eAgenda.Domain.TaskModule.Task;
+using Utils = eAgenda.WinApp.Shared.Utils;
+
+namespace eAgenda.WinApp.TaskModule
 {
     public partial class TaskForm : Form
     {

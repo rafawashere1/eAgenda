@@ -1,4 +1,5 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿using eAgenda.Domain.TaskModule;
+using Task = eAgenda.Domain.TaskModule.Task;
 
 namespace eAgenda.WinApp.TaskModule
 {
